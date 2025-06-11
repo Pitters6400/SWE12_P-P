@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=3 uid="uid://h3ga0nffjxe1"]
+
+[ext_resource type="Texture2D" uid="uid://7285rb1rcrm7" path="res://Assets/trubackground copy 2.png" id="1_ad8ba"]
+[ext_resource type="Script" path="res://Scripts/journal.gd" id="1_pki77"]
+[ext_resource type="Texture2D" uid="uid://c7ujwg315xoly" path="res://Assets/dragon.png" id="2_nh4el"]
+[ext_resource type="Texture2D" uid="uid://by7chy1sclqe6" path="res://Assets/wizard.png" id="3_wlcry"]
+[ext_resource type="Texture2D" uid="uid://cdomlhp0wyh1q" path="res://Assets/knight.png" id="4_qy106"]
+[ext_resource type="Texture2D" uid="uid://ddsu68kb4gbbx" path="res://Assets/goblin.png" id="5_0av23"]
+[ext_resource type="Texture2D" uid="uid://dayg0f544f0ol" path="res://Assets/Tornado.png" id="6_gaqrn"]
+[ext_resource type="FontFile" uid="uid://jq0uxtfln4x" path="res://Assets/letters.otf" id="8_kgeuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxnfb"]
+bg_color = Color(0.294028, 0.294028, 0.294028, 0.337255)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.167451, 0.167451, 0.167451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Journal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pki77")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(958.5, 538)
+scale = Vector2(2.00938, 2.18)
+texture = ExtResource("1_ad8ba")
+metadata/_edit_lock_ = true
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -495.0
+offset_right = 108.0
+offset_bottom = 495.0
+grow_vertical = 2
+theme_override_constants/v_separation = 50
+
+[node name="Dragon" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_nh4el")
+
+[node name="Wizard" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("3_wlcry")
+
+[node name="Knight" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("4_qy106")
+
+[node name="Goblin" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("5_0av23")
+
+[node name="Tornado" type="Button" parent="GridContainer"]
+layout_mode = 2
+icon = ExtResource("6_gaqrn")
+
+[node name="Card Info" type="Node" parent="."]
+
+[node name="Dragon" type="RichTextLabel" parent="Card Info"]
+custom_minimum_size = Vector2(900, 900)
+offset_left = 649.0
+offset_top = 276.0
+offset_right = 1549.0
+offset_bottom = 1176.0
+theme_override_font_sizes/normal_font_size = 50
+text = "Dragon has the ability that if this card attacks, it can attack once again. Has 4 attack and 10 Health."
+tab_size = 6
+
+[node name="Wizard" type="RichTextLabel" parent="Card Info"]
+custom_minimum_size = Vector2(900, 900)
+offset_left = 649.0
+offset_top = 276.0
+offset_right = 1549.0
+offset_bottom = 1176.0
+theme_override_font_sizes/normal_font_size = 50
+text = "The wizard has no abilities and has 4 attack and 6 health."
+tab_size = 6
+
+[node name="Knight" type="RichTextLabel" parent="Card Info"]
+custom_minimum_size = Vector2(900, 900)
+offset_left = 649.0
+offset_top = 276.0
+offset_right = 1549.0
+offset_bottom = 1176.0
+theme_override_font_sizes/normal_font_size = 50
+text = "The Knight has no abilities and has 2 attack and 5 health."
+tab_size = 6
+
+[node name="Goblin" type="RichTextLabel" parent="Card Info"]
+custom_minimum_size = Vector2(900, 900)
+offset_left = 649.0
+offset_top = 276.0
+offset_right = 1549.0
+offset_bottom = 1176.0
+theme_override_font_sizes/normal_font_size = 50
+text = "The Goblin has the ability to immediately deal 1 damage to the opponent and has 1 attack and 5 health."
+tab_size = 6
+
+[node name="Tornado" type="RichTextLabel" parent="Card Info"]
+custom_minimum_size = Vector2(900, 900)
+offset_left = 649.0
+offset_top = 276.0
+offset_right = 1549.0
+offset_bottom = 1176.0
+theme_override_font_sizes/normal_font_size = 50
+text = "The tornado has the effect of dealing 1 damage to all of the opponenents cards."
+tab_size = 6
+
+[node name="ReturnToLevels" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1396.0
+offset_top = 35.0
+offset_right = 1874.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("8_kgeuk")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hxnfb")
+text = "Click here to return to 
+levels scene."
+
+[connection signal="pressed" from="GridContainer/Dragon" to="." method="_on_dragon_pressed"]
+[connection signal="pressed" from="GridContainer/Wizard" to="." method="_on_wizard_pressed"]
+[connection signal="pressed" from="GridContainer/Knight" to="." method="_on_knight_pressed"]
+[connection signal="pressed" from="GridContainer/Goblin" to="." method="_on_goblin_pressed"]
+[connection signal="pressed" from="GridContainer/Tornado" to="." method="_on_tornado_pressed"]
+[connection signal="pressed" from="ReturnToLevels" to="." method="_on_return_to_levels_pressed"]

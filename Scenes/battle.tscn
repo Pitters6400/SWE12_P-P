@@ -1,0 +1,295 @@
+[gd_scene load_steps=24 format=3 uid="uid://bov0uxdpruo1d"]
+
+[ext_resource type="Script" path="res://Scripts/CardManager.gd" id="1_ei5dx"]
+[ext_resource type="Texture2D" uid="uid://7285rb1rcrm7" path="res://Assets/trubackground copy 2.png" id="1_gdi0x"]
+[ext_resource type="PackedScene" uid="uid://brtvel7kuopap" path="res://Scenes/CardSlot.tscn" id="2_ii76v"]
+[ext_resource type="Script" path="res://Scripts/MagicCardSlot.gd" id="3_m1u2w"]
+[ext_resource type="PackedScene" uid="uid://dnx2hsev5o3ov" path="res://Scenes/OpponentCardSlot.tscn" id="4_vmhic"]
+[ext_resource type="Script" path="res://Scripts/PlayerHand.gd" id="5_7aas2"]
+[ext_resource type="Script" path="res://Scripts/OpponentHand.gd" id="6_u8b8n"]
+[ext_resource type="Script" path="res://Scripts/Deck.gd" id="7_qvmvo"]
+[ext_resource type="Texture2D" uid="uid://dj24ir3hn7bm6" path="res://Assets/Atk_Deck copy.png" id="8_2e1n3"]
+[ext_resource type="Script" path="res://Scripts/OpponentDeck.gd" id="9_x4guk"]
+[ext_resource type="Script" path="res://Scripts/InputManager.gd" id="10_mrl3p"]
+[ext_resource type="Script" path="res://Scripts/BattleManager.gd" id="11_738l1"]
+[ext_resource type="Texture2D" uid="uid://bxrfguymypwde" path="res://Assets/pixil-frame-0 (2).png" id="11_k401v"]
+[ext_resource type="Texture2D" uid="uid://c23mwo0jmgpou" path="res://Assets/CardSlot.png" id="12_chw6v"]
+[ext_resource type="FontFile" uid="uid://ck5txi3r2ut1i" path="res://Assets/numbers.ttf" id="14_upav3"]
+[ext_resource type="AudioStream" uid="uid://deqofxf5yswao" path="res://Assets/click.mp3" id="15_efkqf"]
+[ext_resource type="Texture2D" uid="uid://t8w00any4vlk" path="res://Assets/pixil-frame-0 (4).png" id="17_dp7u1"]
+[ext_resource type="AudioStream" uid="uid://drbg6t6oxcitr" path="res://Assets/card_death.wav" id="18_aixpa"]
+[ext_resource type="AudioStream" uid="uid://blndfiq45l2e8" path="res://Assets/direct_attack.wav" id="19_3bou1"]
+[ext_resource type="AudioStream" uid="uid://b2xgrhon1ur2t" path="res://Assets/14-cardplay.mp3" id="20_bsw6o"]
+[ext_resource type="AudioStream" uid="uid://cnpn4yiypq67m" path="res://Assets/damage.wav" id="21_fx7q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pm5xk"]
+size = Vector2(180, 264)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qiuxg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="battle" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -4096
+position = Vector2(963, 543.5)
+scale = Vector2(1.99375, 2.146)
+texture = ExtResource("1_gdi0x")
+metadata/_edit_lock_ = true
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_ei5dx")
+
+[node name="CardSlots" type="Node2D" parent="."]
+
+[node name="CardSlot" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -3
+position = Vector2(960, 750)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("3_m1u2w")
+
+[node name="CardSlot2" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -3
+position = Vector2(820, 750)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("3_m1u2w")
+
+[node name="CardSlot3" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(680, 750)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("3_m1u2w")
+
+[node name="CardSlot4" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(1100, 750)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("3_m1u2w")
+
+[node name="CardSlot5" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(1240, 750)
+scale = Vector2(0.6, 0.6)
+script = ExtResource("3_m1u2w")
+
+[node name="CardSlot6" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(960, 570)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot7" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(820, 570)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot8" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(680, 570)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot9" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(1100, 570)
+scale = Vector2(0.6, 0.6)
+
+[node name="CardSlot10" parent="CardSlots" instance=ExtResource("2_ii76v")]
+z_index = -500
+position = Vector2(1240, 570)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot1" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(960, 360)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot2" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(820, 360)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot3" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(680, 360)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot4" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(1100, 360)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot5" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(1240, 360)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot6" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(960, 180)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot7" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(820, 180)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot8" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(680, 180)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot9" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(1100, 180)
+scale = Vector2(0.6, 0.6)
+
+[node name="EnemyCardSlot10" parent="CardSlots" instance=ExtResource("4_vmhic")]
+modulate = Color(0.999994, 0.334312, 0.328666, 1)
+z_index = -500
+position = Vector2(1240, 180)
+scale = Vector2(0.6, 0.6)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("5_7aas2")
+
+[node name="OpponentHand" type="Node2D" parent="."]
+script = ExtResource("6_u8b8n")
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(140, 955)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("7_qvmvo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck"]
+z_index = -2
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("8_2e1n3")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+shape = SubResource("RectangleShape2D_pm5xk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Deck"]
+modulate = Color(0, 0, 0, 1)
+z_index = -2
+offset_left = -9.0
+offset_top = -250.0
+offset_right = 31.0
+offset_bottom = -210.0
+scale = Vector2(2, 2)
+text = "0"
+
+[node name="OpponentDeck" type="Node2D" parent="."]
+modulate = Color(0.739379, 0, 0.225452, 1)
+position = Vector2(1780, 125)
+scale = Vector2(0.8, 0.8)
+script = ExtResource("9_x4guk")
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDeck"]
+z_index = -2
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("8_2e1n3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OpponentDeck"]
+modulate = Color(0, 0, 0, 1)
+z_index = -2
+offset_left = -9.0
+offset_top = -28.0
+offset_right = 31.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+text = "0"
+
+[node name="EndTurnButton" type="Button" parent="."]
+offset_left = 1615.0
+offset_top = 736.0
+offset_right = 1923.0
+offset_bottom = 1044.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxFlat_qiuxg")
+icon = ExtResource("11_k401v")
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("10_mrl3p")
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("11_738l1")
+
+[node name="BattleTimer" type="Timer" parent="."]
+
+[node name="PlayerHealth" type="RichTextLabel" parent="."]
+offset_left = 130.0
+offset_top = 670.0
+offset_right = 170.0
+offset_bottom = 710.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("14_upav3")
+text = "0"
+
+[node name="OpponentHealth" type="RichTextLabel" parent="."]
+offset_left = 427.0
+offset_top = 673.0
+offset_right = 467.0
+offset_bottom = 713.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("14_upav3")
+text = "0"
+
+[node name="PlayerDiscard" type="Node2D" parent="."]
+position = Vector2(1500, 660)
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerDiscard"]
+position = Vector2(4413.33, -163.333)
+texture = ExtResource("12_chw6v")
+
+[node name="OpponentDiscard" type="Node2D" parent="."]
+position = Vector2(400, 270)
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite2D" type="Sprite2D" parent="OpponentDiscard"]
+modulate = Color(1, 0.384314, 0.27451, 1)
+position = Vector2(-5206.67, 171.667)
+texture = ExtResource("12_chw6v")
+
+[node name="AudioClickPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_efkqf")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_aixpa")
+
+[node name="Scale" type="Sprite2D" parent="."]
+z_index = -3
+z_as_relative = false
+position = Vector2(287, 618)
+scale = Vector2(2, 1.9668)
+texture = ExtResource("17_dp7u1")
+
+[node name="DirectHitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_3bou1")
+volume_db = -9.0
+
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_bsw6o")
+volume_db = -13.619
+autoplay = true
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_fx7q2")
+
+[node name="BossHue" type="CanvasModulate" parent="."]
+visible = false
+color = Color(0.88, 0.2376, 0.505267, 0.47451)
+
+[connection signal="pressed" from="EndTurnButton" to="BattleManager" method="_on_end_turn_button_pressed"]

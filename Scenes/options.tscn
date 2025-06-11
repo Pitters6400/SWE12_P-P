@@ -1,0 +1,118 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddv6qltshx05l"]
+
+[ext_resource type="Script" path="res://Scripts/options.gd" id="1_auvbd"]
+[ext_resource type="FontFile" uid="uid://jq0uxtfln4x" path="res://Assets/letters.otf" id="2_mtp8c"]
+[ext_resource type="Texture2D" uid="uid://7285rb1rcrm7" path="res://Assets/trubackground copy 2.png" id="3_ikkat"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8cr7"]
+bg_color = Color(0.6, 0.6, 0.6, 0.356863)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.0866292, 0.0866293, 0.0866292, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykbhr"]
+bg_color = Color(0.6, 0.6, 0.6, 0.427451)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.116741, 0.116741, 0.116741, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[node name="Options" type="Control"]
+modulate = Color(0.628928, 0.62635, 0.633033, 1)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_auvbd")
+
+[node name="MainMenu" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 849.0
+offset_top = 899.0
+offset_right = 1079.0
+offset_bottom = 999.0
+theme_override_fonts/font = ExtResource("2_mtp8c")
+theme_override_styles/normal = SubResource("StyleBoxFlat_q8cr7")
+text = "Back to main menu
+"
+
+[node name="Options" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -346.0
+offset_top = 17.0
+offset_right = -167.0
+offset_bottom = 85.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+theme_override_fonts/normal_font = ExtResource("2_mtp8c")
+theme_override_font_sizes/normal_font_size = 28
+text = "Options"
+tab_size = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -74.0
+offset_right = 79.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="God Mode" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mtp8c")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykbhr")
+text = "God Mode"
+
+[node name="All Dragons" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mtp8c")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykbhr")
+text = "All Dragons"
+
+[node name="InfMoney" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mtp8c")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ykbhr")
+text = "Rich"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(959.5, 540.5)
+scale = Vector2(2.00104, 2.158)
+texture = ExtResource("3_ikkat")
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/God Mode" to="." method="_on_god_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/All Dragons" to="." method="_on_all_dragons_pressed"]
+[connection signal="pressed" from="VBoxContainer/InfMoney" to="." method="_on_inf_money_pressed"]

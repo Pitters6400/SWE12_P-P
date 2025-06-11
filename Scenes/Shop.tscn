@@ -1,0 +1,483 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5i6blmllvig4"]
+
+[ext_resource type="Script" path="res://Scripts/Shop.gd" id="1_vlp51"]
+[ext_resource type="Texture2D" uid="uid://c7ujwg315xoly" path="res://Assets/dragon.png" id="2_5s5s8"]
+[ext_resource type="FontFile" uid="uid://jq0uxtfln4x" path="res://Assets/letters.otf" id="3_04em7"]
+[ext_resource type="Texture2D" uid="uid://y5l7evfw8mg0" path="res://Assets/shopbackground.png" id="4_i60ea"]
+[ext_resource type="Texture2D" uid="uid://cc0wtifdpct4v" path="res://Assets/EYES.png" id="5_2vmxd"]
+[ext_resource type="FontFile" uid="uid://ck5txi3r2ut1i" path="res://Assets/numbers.ttf" id="6_w0ec0"]
+[ext_resource type="Texture2D" uid="uid://bnxhubs60styg" path="res://Assets/pack.png" id="7_cs2dd"]
+[ext_resource type="Texture2D" uid="uid://ck4phww0mi3xq" path="res://Assets/tear1.png" id="8_nhkj7"]
+[ext_resource type="Texture2D" uid="uid://uwfcx0gbswj" path="res://Assets/tear2.png" id="9_4vyy2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsjx5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(0.922444, 0.47117, 0.305316, 0.631373)
+border_blend = true
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Animation" id="Animation_nvugt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 850)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pack:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tear1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tear2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tear1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(700, 500)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tear2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1220, 500)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Tear1:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.785398]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Tear2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Tear2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Tear1:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PackLabel:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_a7wlp"]
+resource_name = "TearAnimation"
+length = 7.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 850), Vector2(960, 450)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pack:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.05, 2.1, 2.15, 2.2, 2.25, 2.3, 2.35, 2.4, 2.45, 2.5, 2.55, 2.6, 2.65, 2.7, 2.75, 2.8, 2.85, 2.9, 2.95, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665, 0.0872665, -0.0872665]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pack:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.99),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Tear1:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Tear2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Tear1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 450), Vector2(700, 500)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Tear2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 450), Vector2(1220, 500)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Tear1:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.785398]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Tear2:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.785398]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Tear2:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Tear1:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(3, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PackLabel:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 3, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cfphl"]
+_data = {
+"RESET": SubResource("Animation_nvugt"),
+"TearAnimation": SubResource("Animation_a7wlp")
+}
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_vlp51")
+
+[node name="CardShopSlot" type="Button" parent="."]
+offset_left = 172.0
+offset_top = 761.0
+offset_right = 280.0
+offset_bottom = 919.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("2_5s5s8")
+
+[node name="Exit Shop" type="Button" parent="."]
+offset_left = 1504.0
+offset_top = 901.0
+offset_right = 1628.0
+offset_bottom = 946.0
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("3_04em7")
+text = "Exit Shop"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(963.5, 545.5)
+scale = Vector2(1.99687, 2.158)
+texture = ExtResource("4_i60ea")
+metadata/_edit_lock_ = true
+
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(942, 370)
+texture = ExtResource("5_2vmxd")
+
+[node name="TextBox" type="MarginContainer" parent="."]
+offset_top = 473.0
+offset_right = 1923.0
+offset_bottom = 713.0
+
+[node name="Panel" type="Panel" parent="TextBox"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsjx5")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="TextBox/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBox/MarginContainer"]
+layout_mode = 2
+
+[node name="Start" type="Label" parent="TextBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_04em7")
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="Text" type="Label" parent="TextBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_04em7")
+theme_override_font_sizes/font_size = 50
+
+[node name="End" type="Label" parent="TextBox/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_04em7")
+theme_override_font_sizes/font_size = 50
+text = "1"
+
+[node name="GoldLabel" type="RichTextLabel" parent="."]
+offset_left = 1743.0
+offset_top = 4.0
+offset_right = 2015.0
+offset_bottom = 137.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("3_04em7")
+theme_override_font_sizes/normal_font_size = 50
+text = "Gold"
+
+[node name="GoldTracker" type="RichTextLabel" parent="."]
+offset_left = 1826.0
+offset_top = 132.0
+offset_right = 1954.0
+offset_bottom = 201.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("6_w0ec0")
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cfphl")
+}
+
+[node name="PackButton" type="Button" parent="."]
+z_index = 10
+offset_left = 879.0
+offset_top = 695.0
+offset_right = 987.0
+offset_bottom = 903.0
+scale = Vector2(1.5, 1.5)
+icon = ExtResource("7_cs2dd")
+
+[node name="Pack" type="Sprite2D" parent="."]
+z_index = 4
+position = Vector2(960, 850)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_cs2dd")
+
+[node name="Tear1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(700, 500)
+rotation = -0.785398
+scale = Vector2(1.47202, 1.5)
+texture = ExtResource("8_nhkj7")
+
+[node name="Tear2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1220, 500)
+rotation = 0.785398
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("9_4vyy2")
+
+[node name="PackLabel" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_right = 0.5
+offset_left = 925.0
+offset_top = 420.0
+offset_right = 974.0
+offset_bottom = 443.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_04em7")
+
+[node name="CardPrice" type="RichTextLabel" parent="."]
+offset_left = 424.0
+offset_top = 875.0
+offset_right = 552.0
+offset_bottom = 944.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("6_w0ec0")
+theme_override_font_sizes/normal_font_size = 50
+text = "10"
+
+[node name="PackPrice" type="RichTextLabel" parent="."]
+offset_left = 1121.0
+offset_top = 858.0
+offset_right = 1249.0
+offset_bottom = 927.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("6_w0ec0")
+theme_override_font_sizes/normal_font_size = 50
+text = "20"
+
+[connection signal="pressed" from="CardShopSlot" to="." method="_on_card_shop_slot_pressed"]
+[connection signal="pressed" from="Exit Shop" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PackButton" to="." method="_on_pack_button_pressed"]

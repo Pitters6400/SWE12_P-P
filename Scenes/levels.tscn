@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=3 uid="uid://cw36ywa0qp4y4"]
+
+[ext_resource type="Script" path="res://Scripts/LevelManager.gd" id="1_misef"]
+[ext_resource type="FontFile" uid="uid://ck5txi3r2ut1i" path="res://Assets/numbers.ttf" id="2_xlcpx"]
+[ext_resource type="Texture2D" uid="uid://7285rb1rcrm7" path="res://Assets/trubackground copy 2.png" id="3_evcg7"]
+[ext_resource type="Texture2D" uid="uid://cxtqdtp4ou7c1" path="res://Assets/skull.png" id="4_0o004"]
+[ext_resource type="Texture2D" uid="uid://cji7oodbwggru" path="res://Assets/pixil-frame-0 (4) copy 2.png" id="4_5rasm"]
+[ext_resource type="FontFile" uid="uid://jq0uxtfln4x" path="res://Assets/letters.otf" id="5_blpmw"]
+[ext_resource type="Texture2D" uid="uid://btbnpm8mmgipb" path="res://Assets/player.png" id="6_rr0e7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pgwyn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.4)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.181798, 0.181798, 0.181798, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Animation" id="Animation_3cq50"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSkull:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossSkull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1557, 426)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossSkull:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.785398]
+}
+
+[sub_resource type="Animation" id="Animation_ng50y"]
+resource_name = "Skull_Eat"
+length = 2.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BossSkull:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(75, 75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BossSkull:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1557, 426), Vector2(793, -2599)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BossSkull:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.785398, -0.785398, 0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vn2cy"]
+_data = {
+"RESET": SubResource("Animation_3cq50"),
+"Skull_Eat": SubResource("Animation_ng50y")
+}
+
+[node name="levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_misef")
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -675.0
+offset_top = -75.0
+offset_right = 675.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 150
+
+[node name="LVL1" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xlcpx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pgwyn")
+text = "LVL1"
+
+[node name="LVL2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xlcpx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pgwyn")
+text = "LVL2"
+
+[node name="LVL3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xlcpx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pgwyn")
+text = "LVL3"
+
+[node name="LVL4" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xlcpx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pgwyn")
+text = "LVL4"
+
+[node name="LVL5" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_xlcpx")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_pgwyn")
+text = "LVL5"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -100
+position = Vector2(959.5, 540.5)
+scale = Vector2(2.00104, 2.158)
+texture = ExtResource("3_evcg7")
+metadata/_edit_lock_ = true
+
+[node name="BossSkull" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(1557, 426)
+rotation = 0.785398
+texture = ExtResource("4_0o004")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BossSkull"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_vn2cy")
+}
+
+[node name="GoldLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1704.0
+offset_top = 873.0
+offset_right = 1976.0
+offset_bottom = 1006.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("5_blpmw")
+theme_override_font_sizes/normal_font_size = 50
+text = "Gold"
+
+[node name="GoldTracker" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1746.0
+offset_top = 989.0
+offset_right = 1874.0
+offset_bottom = 1058.0
+theme_override_colors/default_color = Color(0.847059, 0.792157, 0.509804, 1)
+theme_override_fonts/normal_font = ExtResource("2_xlcpx")
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+
+[node name="Player" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(372, 410)
+texture = ExtResource("6_rr0e7")
+
+[node name="Journal" type="Button" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 41.0
+offset_right = 206.0
+offset_bottom = 199.0
+text = "Click here to access 
+the journal"
+icon = ExtResource("4_5rasm")
+
+[connection signal="pressed" from="HBoxContainer/LVL1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/LVL2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/LVL3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/LVL4" to="." method="_on_lvl_4_pressed"]
+[connection signal="pressed" from="HBoxContainer/LVL5" to="." method="_on_lvl_5_pressed"]
+[connection signal="pressed" from="Journal" to="." method="_on_journal_pressed"]
